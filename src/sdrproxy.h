@@ -36,7 +36,7 @@
 
 
 #define SERVERPORTNO 16065 // Our local server TCP port number.
-#define MAX_OUTGOING_PORTS 3 // Maximum number of concurrent outgoing ports supported
+#define MAX_OUTGOING_PORTS 2 // Maximum number of concurrent outgoing ports supported
 
 // Number of timeouts to go through trying to send data before giving up.
 #define SENDTRIES 3 
