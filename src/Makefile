@@ -2,13 +2,15 @@ CC=gcc
 CFLAGS=-Wall -m32 -ggdb -pthread
 OBJDIR=../obj
 
+LOCOBJS = buffer.o client.o databfr.o main.o server.o socket.o time.o util.o
+
 OBJS = $(OBJDIR)/buffer.o $(OBJDIR)/client.o $(OBJDIR)/databfr.o $(OBJDIR)/main.o $(OBJDIR)/server.o $(OBJDIR)/socket.o $(OBJDIR)/time.o $(OBJDIR)/util.o
 
 all: ../sdrproxy
 
 linux: ../sdrproxy
 
-../sdrproxy: $(OBJS) sdrproxy.h Makefile
+../sdrproxy: $(LOCOBJS) $(OBJS) sdrproxy.h Makefile
 	find . -maxdepth 1 -name '*.o' && mv *.o $(OBJDIR)
 	$(CC) $(CFLAGS) $(OBJS) -o ../sdrproxy
 

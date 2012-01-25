@@ -8,3 +8,4 @@ obj/*
 saved/*
 save_sources/*
 sdrproxy
+*.log

@@ -257,7 +257,7 @@ client_rcv_to_ring(int rsocket, struct ringset *rcv_ring) {
      */
     int rv,free_bytes;
     char rcv_bfr[BFRSIZE];
-	char errorstr[101],timestr[50];
+	char errorstr[101];
 
     writelog(7,"client_rcv_to_ring: Getting bytes from client into ring buffer\n");
 
@@ -274,8 +274,6 @@ client_rcv_to_ring(int rsocket, struct ringset *rcv_ring) {
             return 0;
         }
         // Other error
-		fprintf(stderr,"%s -- ",get_now_str(timestr));
-        perror("client_rcv_to_ring: Error in recv");
         writelog(0,"client_rcv_to_ring: Error in recv: %s\n",strerror_r(errno,errorstr,100));
         return -1;
     } else {
